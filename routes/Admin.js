@@ -1,5 +1,5 @@
 var express = require('express');
-const { newAdmin, loginAdmin, addCategory, updateCategory, deleteCategory, addSubcategory, updateSubcategory, deleteSubcategory, updateSellerStatus, AllUsers, AllOrders, AllProduct, changeProductStatus, getAllSubcategories, getAllCategories, AllSellers, validateTokenAdmin } = require('../controller/Admin');
+const { newAdmin, loginAdmin, addCategory, updateCategory, deleteCategory, addSubcategory, updateSubcategory, deleteSubcategory, updateSellerStatus, AllUsers, AllOrders, AllProduct, changeProductStatus, getAllSubcategories, getAllCategories, AllSellers, validateTokenAdmin, getData } = require('../controller/Admin');
 var router = express.Router();
 
 var multer = require('multer');
@@ -68,15 +68,7 @@ router.patch('/ChangeProduct/:productId',changeProductStatus);
 // Verify Token Admin 
 router.get('/validateTokenAdmin',validateTokenAdmin);
 
+//Admin Data
+router.get('/getData',getData);
+
 module.exports = router;
-
-
-
-
-// str = "pine,pineapple,water,musk,watermelon,melon,muskmelon"
-
-// users - id,name,c_id
-// city = id,city,s_id
-// state = id ,state
-
-// delete from users where c_id in (select id from city where city='surat')

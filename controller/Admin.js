@@ -42,7 +42,7 @@ exports.loginAdmin = async (req, res) => {
       if (!admin) {
         return res.status(400).json({ msg: 'Invalid credentials' });
       }
-  
+
       // Compare passwords
       const isMatch = await bcrypt.compare(password, admin.password);
       if (!isMatch) {
@@ -500,17 +500,6 @@ exports.AllUsers = async (req, res) => {
       }
        // Fetch all users from the database
     const users = await User.find();
-
-    // Suggest possible operations the admin can perform on user data
-    // const operations = [
-    //   'View user details',
-    //   'Edit user information',
-    //   'Deactivate user account',
-    //   'Delete user account',
-    //   'View user activity log',
-    //   'Reset user password'
-    // ];
-
     // Return the users and operations to the client
     res.status(200).json({
       status: 'Success',
@@ -838,4 +827,24 @@ exports.validateTokenAdmin = async (req, res) => {
       error: error.message,
     });
   }
+};
+
+exports.getData = async (req, res) => {
+  const token = req.headers.auth;
+  if (!token) {
+    return res.status(401).json({
+      status: "Failed",
+      message: "Authorization token not provided",
+    });
+  }
+
+  const decoded = jwt.verify(token, "token");
+  console.log(decoded);
+  const userId = decoded;
+  var Data = await Admin.findById(userId);
+  res.status(200).json({
+    status: "Success",
+    message: "Fetch Data Successfully",
+    Data,
+  });
 };
