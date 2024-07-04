@@ -66,25 +66,25 @@ exports.loginAdmin = async (req, res) => {
 // Admin Add Category
 exports.addCategory = async (req, res) => {
     try {
-        const token = req.headers.auth;
-        if (!token) {
-          return res.status(401).json({
-            status: 'Failed',
-            message: 'Authorization token not provided',
-          });
-        }
+        // const token = req.headers.auth;
+        // if (!token) {
+        //   return res.status(401).json({
+        //     status: 'Failed',
+        //     message: 'Authorization token not provided',
+        //   });
+        // }
     
-        const decoded = jwt.verify(token, 'token'); 
-        const adminId = decoded;
+        // const decoded = jwt.verify(token, 'token'); 
+        // const adminId = decoded;
     
-        // Find the admin based on the decoded ID
-        const admin = await Admin.findById(adminId);
-        if (!admin) {
-          return res.status(404).json({
-            status: 'Failed',
-            message: 'Admin not found',
-          });
-        }
+        // // Find the admin based on the decoded ID
+        // const admin = await Admin.findById(adminId);
+        // if (!admin) {
+        //   return res.status(404).json({
+        //     status: 'Failed',
+        //     message: 'Admin not found',
+        //   });
+        // }
     
         const { name, description } = req.body;
         const existingCategory = await Category.findOne({ name });
@@ -110,25 +110,25 @@ exports.addCategory = async (req, res) => {
   // Controller to update a category
   exports.updateCategory = async (req, res) => {
     try {
-        const token = req.headers.auth;
-        if (!token) {
-          return res.status(401).json({
-            status: 'Failed',
-            message: 'Authorization token not provided',
-          });
-        }
+        // const token = req.headers.auth;
+        // if (!token) {
+        //   return res.status(401).json({
+        //     status: 'Failed',
+        //     message: 'Authorization token not provided',
+        //   });
+        // }
     
-        const decoded = jwt.verify(token, 'token'); 
-        const adminId = decoded;
+        // const decoded = jwt.verify(token, 'token'); 
+        // const adminId = decoded;
     
-        // Find the admin based on the decoded ID
-        const admin = await Admin.findById(adminId);
-        if (!admin) {
-            return res.status(404).json({
-                status: 'Failed',
-                message: 'Admin not found',
-            });
-        }
+        // // Find the admin based on the decoded ID
+        // const admin = await Admin.findById(adminId);
+        // if (!admin) {
+        //     return res.status(404).json({
+        //         status: 'Failed',
+        //         message: 'Admin not found',
+        //     });
+        // }
 
         const categoryId = req.params.id;
         const updates = req.body;
@@ -153,25 +153,25 @@ exports.addCategory = async (req, res) => {
   // Controller to delete a category
   exports.deleteCategory = async (req, res) => {
     try {
-    const token = req.headers.auth;
-        if (!token) {
-          return res.status(401).json({
-            status: 'Failed',
-            message: 'Authorization token not provided',
-          });
-        }
+    // const token = req.headers.auth;
+    //     if (!token) {
+    //       return res.status(401).json({
+    //         status: 'Failed',
+    //         message: 'Authorization token not provided',
+    //       });
+    //     }
     
-        const decoded = jwt.verify(token, 'token'); 
-        const adminId = decoded;
+    //     const decoded = jwt.verify(token, 'token'); 
+    //     const adminId = decoded;
     
-        // Find the admin based on the decoded ID
-        const admin = await Admin.findById(adminId);
-        if (!admin) {
-          return res.status(404).json({
-            status: 'Failed',
-            message: 'Admin not found',
-          });
-        }
+    //     // Find the admin based on the decoded ID
+    //     const admin = await Admin.findById(adminId);
+    //     if (!admin) {
+    //       return res.status(404).json({
+    //         status: 'Failed',
+    //         message: 'Admin not found',
+    //       });
+    //     }
     
       const categoryId = req.params.id;
   
@@ -192,25 +192,25 @@ exports.addCategory = async (req, res) => {
   // Add Sub Category
   exports.addSubcategory = async (req, res) => {
     try {
-        const token = req.headers.auth;
-        if (!token) {
-            return res.status(401).json({
-                status: 'Failed',
-                message: 'Authorization token not provided',
-            });
-        }
+        // const token = req.headers.auth;
+        // if (!token) {
+        //     return res.status(401).json({
+        //         status: 'Failed',
+        //         message: 'Authorization token not provided',
+        //     });
+        // }
 
-        const decoded = jwt.verify(token, 'token'); 
-        const adminId = decoded; // Adjust based on your JWT payload
+        // const decoded = jwt.verify(token, 'token'); 
+        // const adminId = decoded; // Adjust based on your JWT payload
 
-        // Find the admin based on the decoded ID
-        const admin = await Admin.findById(adminId);
-        if (!admin) {
-            return res.status(404).json({
-                status: 'Failed',
-                message: 'Admin not found',
-            });
-        }
+        // // Find the admin based on the decoded ID
+        // const admin = await Admin.findById(adminId);
+        // if (!admin) {
+        //     return res.status(404).json({
+        //         status: 'Failed',
+        //         message: 'Admin not found',
+        //     });
+        // }
 
         const { name, description, category } = req.body;
         const existingSubcategory = await Subcategory.findOne({ name });
@@ -237,25 +237,25 @@ exports.addCategory = async (req, res) => {
 // Update Subcategory
 exports.updateSubcategory = async (req, res) => {
     try {
-        const token = req.headers.auth;
-        if (!token) {
-            return res.status(401).json({
-                status: 'Failed',
-                message: 'Authorization token not provided',
-            });
-        }
+        // const token = req.headers.auth;
+        // if (!token) {
+        //     return res.status(401).json({
+        //         status: 'Failed',
+        //         message: 'Authorization token not provided',
+        //     });
+        // }
 
-        const decoded = jwt.verify(token, 'token'); 
-        const adminId = decoded; // Adjust based on your JWT payload
+        // const decoded = jwt.verify(token, 'token'); 
+        // const adminId = decoded; // Adjust based on your JWT payload
 
-        // Find the admin based on the decoded ID
-        const admin = await Admin.findById(adminId);
-        if (!admin) {
-            return res.status(404).json({
-                status: 'Failed',
-                message: 'Admin not found',
-            });
-        }
+        // // Find the admin based on the decoded ID
+        // const admin = await Admin.findById(adminId);
+        // if (!admin) {
+        //     return res.status(404).json({
+        //         status: 'Failed',
+        //         message: 'Admin not found',
+        //     });
+        // }
 
         const subcategoryId = req.params.id;
         const updates = req.body;
@@ -280,25 +280,25 @@ exports.updateSubcategory = async (req, res) => {
 // Delete Subcategory
 exports.deleteSubcategory = async (req, res) => {
     try {
-        const token = req.headers.auth;
-        if (!token) {
-            return res.status(401).json({
-                status: 'Failed',
-                message: 'Authorization token not provided',
-            });
-        }
+        // const token = req.headers.auth;
+        // if (!token) {
+        //     return res.status(401).json({
+        //         status: 'Failed',
+        //         message: 'Authorization token not provided',
+        //     });
+        // }
 
-        const decoded = jwt.verify(token, 'token'); 
-        const adminId = decoded; // Adjust based on your JWT payload
+        // const decoded = jwt.verify(token, 'token'); 
+        // const adminId = decoded; // Adjust based on your JWT payload
 
-        // Find the admin based on the decoded ID
-        const admin = await Admin.findById(adminId);
-        if (!admin) {
-            return res.status(404).json({
-                status: 'Failed',
-                message: 'Admin not found',
-            });
-        }
+        // // Find the admin based on the decoded ID
+        // const admin = await Admin.findById(adminId);
+        // if (!admin) {
+        //     return res.status(404).json({
+        //         status: 'Failed',
+        //         message: 'Admin not found',
+        //     });
+        // }
 
         const subcategoryId = req.params.id;
 
@@ -329,25 +329,25 @@ const transporter = nodemailer.createTransport({
 // Admin updates seller status
 exports.updateSellerStatus = async (req, res) => {
   try {
-    const token = req.headers.auth;
-    if (!token) {
-      return res.status(401).json({
-        status: 'Failed',
-        message: 'Authorization token not provided',
-      });
-    }
+    // const token = req.headers.auth;
+    // if (!token) {
+    //   return res.status(401).json({
+    //     status: 'Failed',
+    //     message: 'Authorization token not provided',
+    //   });
+    // }
 
-    const decoded = jwt.verify(token, 'token'); 
-    const adminId = decoded; // Adjust based on your JWT payload
+    // const decoded = jwt.verify(token, 'token'); 
+    // const adminId = decoded; // Adjust based on your JWT payload
 
-    // Find the admin based on the decoded ID
-    const admin = await Admin.findById(adminId);
-    if (!admin) {
-      return res.status(404).json({
-        status: 'Failed',
-        message: 'Admin not found',
-      });
-    }
+    // // Find the admin based on the decoded ID
+    // const admin = await Admin.findById(adminId);
+    // if (!admin) {
+    //   return res.status(404).json({
+    //     status: 'Failed',
+    //     message: 'Admin not found',
+    //   });
+    // }
 
     const { status } = req.body;
     const sellerId = req.params.id;
@@ -479,25 +479,25 @@ exports.updateSellerStatus = async (req, res) => {
 // Admin Manage Users
 exports.AllUsers = async (req, res) => {
   try {
-      const token = req.headers.auth;
-      if (!token) {
-          return res.status(401).json({
-              status: 'Failed',
-              message: 'Authorization token not provided',
-          });
-      }
+      // const token = req.headers.auth;
+      // if (!token) {
+      //     return res.status(401).json({
+      //         status: 'Failed',
+      //         message: 'Authorization token not provided',
+      //     });
+      // }
 
-      const decoded = jwt.verify(token, 'token'); 
-      const adminId = decoded; // Adjust based on your JWT payload
+      // const decoded = jwt.verify(token, 'token'); 
+      // const adminId = decoded; // Adjust based on your JWT payload
 
-      // Find the admin based on the decoded ID
-      const admin = await Admin.findById(adminId);
-      if (!admin) {
-          return res.status(404).json({
-              status: 'Failed',
-              message: 'Admin not found',
-          });
-      }
+      // // Find the admin based on the decoded ID
+      // const admin = await Admin.findById(adminId);
+      // if (!admin) {
+      //     return res.status(404).json({
+      //         status: 'Failed',
+      //         message: 'Admin not found',
+      //     });
+      // }
        // Fetch all users from the database
     const users = await User.find();
     // Return the users and operations to the client
@@ -516,26 +516,26 @@ exports.AllUsers = async (req, res) => {
 exports.AllOrders = async (req, res) => {
   try {
     // Extract token from headers
-    const token = req.headers.auth;
-    if (!token) {
-      return res.status(401).json({
-        status: 'Failed',
-        message: 'Authorization token not provided',
-      });
-    }
+    // const token = req.headers.auth;
+    // if (!token) {
+    //   return res.status(401).json({
+    //     status: 'Failed',
+    //     message: 'Authorization token not provided',
+    //   });
+    // }
 
-    // Verify token
-    const decoded = jwt.verify(token, 'token'); 
-    const adminId = decoded; 
+    // // Verify token
+    // const decoded = jwt.verify(token, 'token'); 
+    // const adminId = decoded; 
 
-    // Find the admin based on the decoded ID
-    const admin = await Admin.findById(adminId);
-    if (!admin) {
-      return res.status(404).json({
-        status: 'Failed',
-        message: 'Admin not found',
-      });
-    }
+    // // Find the admin based on the decoded ID
+    // const admin = await Admin.findById(adminId);
+    // if (!admin) {
+    //   return res.status(404).json({
+    //     status: 'Failed',
+    //     message: 'Admin not found',
+    //   });
+    // }
 
     // Fetch all orders from the database
     const orders = await Order.find();
@@ -560,26 +560,26 @@ exports.AllOrders = async (req, res) => {
 exports.AllProduct = async (req, res) => {
   try {
     // Extract token from headers
-    const token = req.headers.auth;
-    if (!token) {
-      return res.status(401).json({
-        status: 'Failed',
-        message: 'Authorization token not provided',
-      });
-    }
+    // const token = req.headers.auth;
+    // if (!token) {
+    //   return res.status(401).json({
+    //     status: 'Failed',
+    //     message: 'Authorization token not provided',
+    //   });
+    // }
 
-    // Verify token
-    const decoded = jwt.verify(token, 'token'); 
-    const adminId = decoded; 
+    // // Verify token
+    // const decoded = jwt.verify(token, 'token'); 
+    // const adminId = decoded; 
 
-    // Find the admin based on the decoded ID
-    const admin = await Admin.findById(adminId);
-    if (!admin) {
-      return res.status(404).json({
-        status: 'Failed',
-        message: 'Admin not found',
-      });
-    }
+    // // Find the admin based on the decoded ID
+    // const admin = await Admin.findById(adminId);
+    // if (!admin) {
+    //   return res.status(404).json({
+    //     status: 'Failed',
+    //     message: 'Admin not found',
+    //   });
+    // }
 
     // Fetch all orders from the database
     const product = await Product.find();
@@ -604,26 +604,26 @@ exports.AllProduct = async (req, res) => {
 exports.changeProductStatus = async (req, res) => {
   try {
     // Extract token from headers
-    const token = req.headers.auth;
-    if (!token) {
-      return res.status(401).json({
-        status: 'Failed',
-        message: 'Authorization token not provided',
-      });
-    }
+    // const token = req.headers.auth;
+    // if (!token) {
+    //   return res.status(401).json({
+    //     status: 'Failed',
+    //     message: 'Authorization token not provided',
+    //   });
+    // }
 
-    // Verify token
-    const decoded = jwt.verify(token, 'token');
-    const adminId = decoded;
+    // // Verify token
+    // const decoded = jwt.verify(token, 'token');
+    // const adminId = decoded;
 
-    // Find the admin based on the decoded ID
-    const admin = await Admin.findById(adminId);
-    if (!admin) {
-      return res.status(404).json({
-        status: 'Failed',
-        message: 'Admin not found',
-      });
-    }
+    // // Find the admin based on the decoded ID
+    // const admin = await Admin.findById(adminId);
+    // if (!admin) {
+    //   return res.status(404).json({
+    //     status: 'Failed',
+    //     message: 'Admin not found',
+    //   });
+    // }
 
     // Extract product ID from URL parameters and status from request body
     const { productId } = req.params;
@@ -667,26 +667,26 @@ exports.changeProductStatus = async (req, res) => {
 // Get allSub category
 exports.getAllSubcategories = async (req, res) => {
   try {
-    const token = req.headers.auth;
-    if (!token) {
-      return res.status(401).json({
-        status: 'Failed',
-        message: 'Authorization token not provided',
-      });
-    }
+    // const token = req.headers.auth;
+    // if (!token) {
+    //   return res.status(401).json({
+    //     status: 'Failed',
+    //     message: 'Authorization token not provided',
+    //   });
+    // }
 
-    // Verify token
-    const decoded = jwt.verify(token, 'token');
-    const adminId = decoded;
+    // // Verify token
+    // const decoded = jwt.verify(token, 'token');
+    // const adminId = decoded;
 
-    // Find the admin based on the decoded ID
-    const admin = await Admin.findById(adminId);
-    if (!admin) {
-      return res.status(404).json({
-        status: 'Failed',
-        message: 'Admin not found',
-      });
-    }
+    // // Find the admin based on the decoded ID
+    // const admin = await Admin.findById(adminId);
+    // if (!admin) {
+    //   return res.status(404).json({
+    //     status: 'Failed',
+    //     message: 'Admin not found',
+    //   });
+    // }
     const subcategories = await Subcategory.find().populate('category', 'name');
 
     if (subcategories.length === 0) {
@@ -712,26 +712,26 @@ exports.getAllSubcategories = async (req, res) => {
 // All Category
 exports.getAllCategories = async (req, res) => {
   try {
-    const token = req.headers.auth;
-    if (!token) {
-      return res.status(401).json({
-        status: 'Failed',
-        message: 'Authorization token not provided',
-      });
-    }
+    // const token = req.headers.auth;
+    // if (!token) {
+    //   return res.status(401).json({
+    //     status: 'Failed',
+    //     message: 'Authorization token not provided',
+    //   });
+    // }
 
-    // Verify token
-    const decoded = jwt.verify(token, 'token');
-    const adminId = decoded;
+    // // Verify token
+    // const decoded = jwt.verify(token, 'token');
+    // const adminId = decoded;
 
-    // Find the admin based on the decoded ID
-    const admin = await Admin.findById(adminId);
-    if (!admin) {
-      return res.status(404).json({
-        status: 'Failed',
-        message: 'Admin not found',
-      });
-    }
+    // // Find the admin based on the decoded ID
+    // const admin = await Admin.findById(adminId);
+    // if (!admin) {
+    //   return res.status(404).json({
+    //     status: 'Failed',
+    //     message: 'Admin not found',
+    //   });
+    // }
       const categories = await Category.find();
 
       if (categories.length === 0) {
@@ -757,25 +757,25 @@ exports.getAllCategories = async (req, res) => {
 // All Seller
 exports.AllSellers = async (req, res) => {
   try {
-    const token = req.headers.auth;
-    if (!token) {
-      return res.status(401).json({
-        status: 'Failed',
-        message: 'Authorization token not provided',
-      });
-    }
+    // const token = req.headers.auth;
+    // if (!token) {
+    //   return res.status(401).json({
+    //     status: 'Failed',
+    //     message: 'Authorization token not provided',
+    //   });
+    // }
 
-    const decoded = jwt.verify(token, 'token');
-    const adminId = decoded;
+    // const decoded = jwt.verify(token, 'token');
+    // const adminId = decoded;
 
-    // Find the admin based on the decoded ID
-    const admin = await Admin.findById(adminId);
-    if (!admin) {
-      return res.status(404).json({
-        status: 'Failed',
-        message: 'Admin not found',
-      });
-    }
+    // // Find the admin based on the decoded ID
+    // const admin = await Admin.findById(adminId);
+    // if (!admin) {
+    //   return res.status(404).json({
+    //     status: 'Failed',
+    //     message: 'Admin not found',
+    //   });
+    // }
 
     // Fetch all sellers from the database
     const sellers = await Seller.find();
